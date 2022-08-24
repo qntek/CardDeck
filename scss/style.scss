@@ -1,0 +1,88 @@
+$rotation: -10deg; //an angle of a card rotation when hovered
+$padding_when_hover: 160px;
+$duration: 0.8s; //duration of card moving animation
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	background-color: #222;
+}
+
+.container {
+	white-space: nowrap;
+	// height: 400px;
+	width: 100%;
+	padding: 50px 180px 50px 80px;
+	padding-bottom: auto;
+	background-color: #333;
+}
+.cardContainer {
+	position: relative;
+	height: 300px;
+	width: 100px;
+	display: inline-block;
+	padding: 0 20px 0 0;
+	font-family: 'Rubik Maze', cursive;
+	font-size: 80px;
+	transition: padding-left $duration, transform $duration;
+}
+.card {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	padding-left: 20px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	height: 100%;
+	width: 200px;
+	border: 2px solid whitesmoke;
+	border-radius: 15px;
+	transform-origin: left bottom;
+	transition: transform $duration, box-shadow $duration, left $duration,
+		bottom $duration;
+}
+.card_1 {
+	background-color: #f70000;
+}
+.card_2 {
+	background-color: #f76b00;
+}
+.card_3 {
+	background-color: #f7f700;
+}
+.card_4 {
+	background-color: #1dae1d;
+}
+.card_5 {
+	background-color: #00cbf7;
+}
+.card_6 {
+	background-color: #3535c2;
+}
+.card_7 {
+	background-color: #cb00f7;
+}
+
+.cardContainer:hover {
+	padding-left: $padding_when_hover;
+	transform: scale(1.05);
+	.card:hover {
+		box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.9);
+		transform: rotate($rotation);
+		bottom: 10px;
+		left: -10px;
+	}
+}
+
+p::selection {
+	background-color: none;
+}
